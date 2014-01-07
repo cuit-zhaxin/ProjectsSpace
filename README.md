@@ -9,11 +9,11 @@
 
 ##About Me
 
-- Weibo: 
+- Weibo: http://weibo.com/blog4zhaxin
 
 - E-mail: anjiezha@gmail.com
 
-- 
+- QQ: 478701851
 
 
 
