@@ -18,6 +18,11 @@ public class CMainGame : MonoBehaviour {
 	bool bHeroStandBy;
 	int currState;
 
+	public AudioClip newPlayerEffect;
+	private AudioSource playerAuEffect;
+	public AudioClip newEnemyEffect;
+	private AudioSource enemyAuEffect;
+
 	enum ENEMYSTATE{
 		level0=0,
 		level1=1,
@@ -25,6 +30,13 @@ public class CMainGame : MonoBehaviour {
 	}
 	
 	void Start () {
+
+		//initialize the audio
+		playerAuEffect = gameObject.AddComponent<AudioSource>();
+		playerAuEffect.clip = newPlayerEffect;
+		enemyAuEffect = gameObject.AddComponent<AudioSource>();
+		enemyAuEffect.clip = newEnemyEffect;
+
 		bShoot = false;
 		bHeroStandBy = false;
 		arrEnemy = null;
@@ -36,6 +48,8 @@ public class CMainGame : MonoBehaviour {
 		enemyState (currState);
 		//enemyState (ENEMYSTATE.level2);
 		Invoke ("autoChangeState", 6);
+		Invoke ("endGame", 16);
+		InvokeRepeating("visitEnemy",6,1.0f);
 	}
 	
 	void Update () {
@@ -46,6 +60,8 @@ public class CMainGame : MonoBehaviour {
 		//originPos = camera.ScreenToWorldPoint (clone.transform.position);
 		if(Input.GetMouseButtonDown(0)){
 			if(bShoot==false){
+
+				playerAuEffect.Play();  //play the sound effect
 				pos = camera.WorldToScreenPoint (clone.transform.position);
 				dis = pos.z;
 				clone.transform.position = camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, dis));
@@ -94,7 +110,7 @@ public class CMainGame : MonoBehaviour {
 	}
 
 	void enemyState(int state){
-
+		enemyAuEffect.Play ();
 		if((int)ENEMYSTATE.level0 == state){
 			currState = state;
 			for(int i=0;i<5;i++){
@@ -127,37 +143,59 @@ public class CMainGame : MonoBehaviour {
 			if(obj){
 				obj.transform.position += new Vector3 (0, -0.01f, 0);
 			}
-		    /*
-			//checke out the result of the game 
-			if(obj.transform.position.y<150){
-
-				gameLoose(currState);
-			}*/
 		}
 		for(int i=0;i<5;i++){
 			GameObject obj = GameObject.Find("level1"+i);
 			if(obj){
 				obj.transform.position += new Vector3 (0, -0.01f, 0);
 			}
-			/*
-			//checke out the result of the game 
-			if(obj.transform.position.y<150){
-				
-				gameLoose(currState);
-			}*/
 		}
 	}
 
 	void gameWin(int nLevel){
 
 		Debug.Log("Win the Game!");
-		//Application.LoadLevel("WinGameLayer");
+		//Application.LoadLevel("WinGame");
+		Application.LoadLevel("GameAgain");
 	}
 
 	void gameLoose(int nLevel){
 
 		Debug.Log("Loose the Game!");
-		//Application.LoadLevel("LooseGameLayer");
+		Application.LoadLevel("LooseGame");
+	}
+
+	bool isEnemyEmpty(){
+
+		for(int i=0;i<2;i++){
+			for(int j=0;j<5;j++){
+				if(GameObject.Find("level"+i+j) !=null){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	void visitEnemy(){
+		
+		for(int i=0;i<2;i++){
+			for(int j=0;j<5;j++){
+				if(GameObject.Find("level"+i+j) !=null){
+					return ;
+				}
+			}
+		}
+		gameWin(1);
+	}
+
+	void endGame(){
+
+		if (isEnemyEmpty ()) {
+			gameWin(1);		
+		}else{
+			gameLoose(1);
+		}
 	}
 /*
 	//draw the test line

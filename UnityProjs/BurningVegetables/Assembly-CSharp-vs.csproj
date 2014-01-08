@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{E15AC7E1-1401-19B2-8DA0-B32666C3A4E8}</ProjectGuid>
+	<ProjectGuid>{6BA62606-6E60-8F0F-338B-F246FAA1D751}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\script\CDrawCircle.cs" />
      <Compile Include="Assets\script\CMainGame.cs" />
+     <Compile Include="Assets\script\audioPlay.cs" />
      <Compile Include="Assets\script\collisionCheck.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

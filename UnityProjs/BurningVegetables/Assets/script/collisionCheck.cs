@@ -4,8 +4,16 @@ using System.Collections;
 public class collisionCheck : MonoBehaviour {
 
 	bool bCollision;
-	
+	GameObject obj;
+
+	public AudioClip newPlayerEffect;
+	private AudioSource playerAuEffect;
+
 	void Start () {
+
+		playerAuEffect = gameObject.AddComponent<AudioSource>();
+		playerAuEffect.clip = newPlayerEffect;
+		obj = GameObject.Find ("level01");
 		bCollision = false;
 	}
 	
@@ -13,14 +21,23 @@ public class collisionCheck : MonoBehaviour {
 		if(bCollision){
 			UnityEngine.Debug.Log("collision");
 		}
+		/*
+		//checke out the result of the game 
+		if(obj.transform.position.y<camera.ScreenToWorldPoint (new Vector3(0,150,0)).y){
+
+			Debug.Log("gameLoose");
+			//gameLoose(currState);
+		}*/
 	}
 	
 	void OnCollisionEnter2D(Collision2D col){
 		//UnityEngine.Debug.Log("collision");
 		if(col.gameObject.tag!="protect"){
-
-			Destroy(col.gameObject);
-			bCollision = true;
+			//if(col.gameObject.tag != "dg0"){
+				playerAuEffect.Play();
+				Destroy(col.gameObject);
+				bCollision = true;
+			//}	
 		}
 	}	
 } 
