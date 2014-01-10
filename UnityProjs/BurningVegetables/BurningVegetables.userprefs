@@ -1,16 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/CMainGame.cs">
     <Files>
-      <File FileName="Assets/script/CDrawCircle.cs" Line="9" Column="22" />
-      <File FileName="Assets/script/audioPlay.cs" Line="6" Column="1" />
-      <File FileName="Assets/script/CMainGame.cs" Line="138" Column="1" />
-      <File FileName="Assets/script/collisionCheck.cs" Line="10" Column="37" />
-      <File FileName="Assets/script/sc1GUI.js" Line="30" Column="7" />
-      <File FileName="Assets/script/sc2GUI.js" Line="3" Column="32" />
-      <File FileName="Assets/script/sc3GUI.js" Line="14" Column="2" />
-      <File FileName="Assets/script/gameAgainGUI.js" Line="5" Column="1" />
-      <File FileName="Assets/script/gameLooseGUI.js" Line="6" Column="1" />
+      <File FileName="Assets/script/CMainGame.cs" Line="267" Column="1" />
+      <File FileName="Assets/script/CDrawCircle.cs" Line="1" Column="1" />
+      <File FileName="Assets/script/audioPlay.cs" Line="1" Column="1" />
+      <File FileName="Assets/script/CMainGame.cs" Line="19" Column="16" />
+      <File FileName="Assets/script/collisionCheck.cs" Line="1" Column="1" />
+      <File FileName="Assets/script/sc1GUI.js" Line="1" Column="1" />
+      <File FileName="Assets/script/sc2GUI.js" Line="1" Column="1" />
+      <File FileName="Assets/script/sc3GUI.js" Line="1" Column="1" />
+      <File FileName="Assets/script/gameAgainGUI.js" Line="1" Column="1" />
+      <File FileName="Assets/script/gameLooseGUI.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
